@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>ACELEROMETRO</title>
+<script type="text/javascript"  charset="utf-8" src="js/cordova.js"></script>
+<!-- Add PhoneGap script here -->
+<script type="text/javascript">
+    document.addEventListener("deviceready",onDiveReady,false);
+    function onDeviceReady(){
+        navigator.accelerometer.watchAcceleration(onSuccess,onError,{frequency:3000});
+    }
+    function onSuccess(acelerar){
+     var elemento=document.getElementById("acelerometro")   ;
+     elemento.innerHTML="Aceleracion en X:"+acelerar.x+" Aceleracion en Y:"+acelerar.y+
+             "Aceleracion en Z:"+acelerar.z+"Timestamp:"+acelerar.timestamp;
+    }
+    function onError(){
+        alert(error);
+    }
+</script>
+
+
+</head>
+<body>
+    <div id="acelerometro">***DATOS DEL ACELEROMETRO***</div>
+    
+
+
+</body>
+</html>
